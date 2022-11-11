@@ -245,12 +245,14 @@
   /*Products*/
   .cards-container {
     margin-top: 20px;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 240px);
+    display: flex;
+    align-items: center;
+    height: 560px;
     gap: 26px;
     place-content: center;
   }
   .product-card {
+    margin: 0 auto;
     width: 240px;
   }
   .product-card img {

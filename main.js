@@ -111,7 +111,7 @@ function renderProducts(arr){
         const productInfoFigure=document.createElement('figure');
 
         const icon=document.createElement('img');
-        icon.setAttribute('src','./icons/bt_add_to_cart.svg');
+        icon.setAttribute('src','./src/icons/bt_add_to_cart.svg');
 
         productInfoFigure.appendChild(icon);
 
@@ -157,7 +157,7 @@ function renderProducts(arr){
             buttonAsideProductDetail.innerText="Add to cart"
 
             const cartIconProductDetail=document.createElement("img");
-            cartIconProductDetail.setAttribute("src","./icons/bt_add_to_cart.svg");
+            cartIconProductDetail.setAttribute("src","./src/icons/bt_add_to_cart.svg");
             cartIconProductDetail.setAttribute("alt","add to cart");
             buttonAsideProductDetail.append(cartIconProductDetail);
 
