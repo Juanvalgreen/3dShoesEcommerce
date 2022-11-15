@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+  <title>FootShop</title>
+  <link rel="shortcut icon" href="./src/logos/Foot-Shop-logo.png" type="image/png">
+    <link rel="stylesheet" href="./css/styleDetail.css">
+
+      <!--Three js-->
+    <script src="./src/libs/build/three.js"></script>
+    <script src="./src/three.js-master/build/three.min.js"></script>
+    <!--CONTROLS-->
+
+    <script src="./src/libs/control/OrbitControls.js"></script>
+    <!--LOAD FILES-->
+    <script src="./src/libs/load/DRACOLoader.js"></script>
+    <script src="./src/libs/load/GLTFLoader.js"></script>
+    <script src="./src/libs/load/OBJLoader.js"> </script>
+    <script src="./src/libs/load/MTLLoader.js"> </script>
+</head>
+<body onload="start()">
+    <nav>
+        <img src="./src/icons/icon_menu.png" alt="menu" class="menu">
+    
+        <div class="navbar-left">
+          <img src="./src/logos/Foot-Shop-logo.png" alt="logo" class="logo">
+    
+          <ul>
+            <li>
+              <a href="./index.html">Home</a>
+            </li>
+            <li>
+              <a href="./gallery.html">Gallery</a>
+            </li>
+          </ul>
+        </div>
+    
+        <div class="navbar-right">
+          <ul>
+            <li class="navbar-email">green@example.com</li>
+            <li class="navbar-shopping-cart">
+              <img src="./src/icons/grocery-store.png" alt="shopping cart">
+              <div>2</div>
+            </li>
+          </ul>
+        </div>
+    
+        <div class="desktop-menu inactive">
+            <ul>
+              <li>
+                <a href="/" class="title">My orders</a>
+              </li>
+        
+              <li>
+                <a href="/">My account</a>
+              </li>
+        
+              <li>
+                <a href="/">Sign out</a>
+              </li>
+            </ul>
+          </div>
+    
+          <div class="mobile-menu inactive">
+            <ul>
+              <li>
+                <a href="/">CATEGORIES</a>
+              </li>
+              <li>
+                <a href="./index.html">Home</a>
+              </li>
+              <li>
+                <a href="./gallery.html">Gallery</a>
+              </li>
+            </ul>
+        
+            <ul>
+              <li>
+                <a href="/">My orders</a>
+              </li>
+              <li>
+                <a href="/">My account</a>
+              </li>
+            </ul>
+        
+            <ul>
+              <li>
+                <a href="/" class="email">green@example.com</a>
+              </li>
+              <li>
+                <a href="/" class="sign-out">Sign out</a>
+              </li>
+            </ul>
+          </div>
+      </nav>
+      <aside id="cartContainer"class="inactive">
+        <div class="title-container">
+          <img src="./src/icons/flechita.svg" alt="arrow">
+          <p class="title">My order</p>
+        </div>
+    
+        <div class="my-order-content">
+          <div class="shopping-cart">
+            <figure>
+              <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
+            </figure>
+            <p>Bike</p>
+            <p>$30,00</p>
+            <img src="./src/icons/icon_close.png" alt="close">
+          </div>
+    
+          <div class="shopping-cart">
+            <figure>
+              <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
+            </figure>
+            <p>Bike</p>
+            <p>$30,00</p>
+            <img src="./src/icons/icon_close.png" alt="close">
+          </div>
+    
+          <div class="shopping-cart">
+            <figure>
+              <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
+            </figure>
+            <p>Bike</p>
+            <p>$30,00</p>
+            <img src="./src/icons/icon_close.png" alt="close">
+          </div>
+    
+          <div class="order">
+            <p>
+              <span>Total</span>
+            </p>
+            <p>$560.00</p>
+          </div>
+    
+          <button id="primary-button" >
+            Checkout
+          </button>
+        </div>
+      </div>
+      </aside>
+    <div class="main-container">
+
+        <div class="canvas-container">
+            <canvas class="webgl"></canvas>
+        </div>
+        <div class="container-product-info">
+            <h1 class="title_product-info">retro1</h1>
+            <p class="description_product-info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus delectus quas tempore quod sapiente, consequuntur, molestiae eius ut et quos, rem adipisci doloribus mollitia eaque reprehenderit odit quasi ipsum alias.</p>
+            <p class="price_product-info">$768</p>
+            <ul class="size-list">
+                <li>6.5</li>
+                <li>7</li>
+                <li>7.5</li>
+                <li>8</li>
+                <li>8.5</li>
+            </ul>
+            <button class="primary-button" > Add to Cart</button>    
+        </div>
+    </div>
+    <script src="./js/mainDetail.js"></script>
+    <script src="./js/loadDetail.js"></script>
+</body>
+</html>
