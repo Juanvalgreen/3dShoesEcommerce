@@ -1,4 +1,27 @@
 
+//array with pruducts
+const productList=[];
+productList.push({
+    name: '1 Retro High OG',
+    price: '229',
+    model: 'retro1',
+    description: "Familiar but always fresh, the iconic Air Jordan 1 is remastered for today's sneakerhead culture. This Retro High OG version goes all in with premium leather, comfortable cushioning and classic design details."
+});
+productList.push({
+    name: 'Nike Up Tempo',
+    price: '160',
+    model: 'supreme_x_Nike_Air_More_Uptempo',
+    description: "The Nike Air More Uptempo is a popular basketball sneaker that debuted in 1996. The “AIR” lettering draws inspiration from oversized objects from 90s graffiti and pop art. It was designed by Wilson Smith and made famous by Scottie Pippen in the late '90s. "
+});
+productList.push({
+    name: 'Converse Chuck 70 Counter Climate',
+    price: '120',
+    model: 'converse',
+    description: "The Chuck 70 Counter Climate reflects the duality of the creative explorer. Dark outdoor colors and small doses of vibrant pop colors make this shoe versatile for outdoor and city life."
+});
+
+
+
 //Selectors
 const userMenuDesktop=document.querySelector('.desktop-menu');
 const userEmail=document.querySelector('.navbar-email');
@@ -9,6 +32,7 @@ const closeIconProductDetail=document.querySelector('.product-detail-close')
 const cartMenu=document.querySelector('#cartContainer');
 const cardContainer=document.querySelector('.cards-container');
 const productDetailContainer=document.querySelector('#productDetail');
+
 let productSelect=null;
 
 
@@ -43,41 +67,11 @@ function toggleMenu(elemento){
 
 }
 
-// function openProductDetailAside(){
-//     mobileMenu.classList.add("inactive");
-//     cartMenu.classList.add("inactive");
-//     userMenuDesktop.classList.add("inactive");
-//     productDetailContainer.classList.remove("inactive");
-
-
-
-// }
 
 function closeProductDetailAside(){
     productDetailContainer.classList.add("inactive");
 }
 
-
-//array with pruducts
-const productList=[];
-productList.push({
-    name: 'Bike',
-    price: '120',
-    image:'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-    description: "Comfortable e-Bike with the power of a confident ride. Como lets you go with the flow by giving you a full-power, confidence-inspiring, utterly delightful experience on a bike that feels effortless to ride."
-});
-productList.push({
-    name: 'Tablet',
-    price: '220',
-    image:'https://images.pexels.com/photos/1334597/pexels-photo-1334597.jpeg?cs=srgb&dl=pexels-josh-sorenson-1334597.jpg&fm=jpg',
-    description: "Samsung Galaxy Tab A7 Lite, the tablet that's made to be shared. With its compact 8.7 screen, Galaxy Tab A7 Lite is perfectly sized for entertainment on the go. Its sturdy metal frame is built to be brought along from the living room to your beach vacation, or wherever you want to take it. Galaxy Tab A7 Lite also simplifies entertainment needs for everyone under your roof, with a powerful processor and plenty of storage."
-});
-productList.push({
-    name: 'TV',
-    price: '520',
-    image:'https://images.pexels.com/photos/333984/pexels-photo-333984.jpeg?cs=srgb&dl=pexels-rene-asmussen-333984.jpg&fm=jpg',
-    description: "View your favorite content at four times the resolution of 1080p with the Samsung TU7000 65 Class HDR 4K UHD Smart LED TV."
-});
 
 
 //Function to render products with iteration of array
@@ -108,13 +102,13 @@ function renderProducts(arr){
 
         const productPrice=document.createElement('a');
         productPrice.innerText='$'+product.price;
-        productPrice.setAttribute('href','./productDetail.html')
+        productPrice.setAttribute('href','./productDetail.html?product='+arr.indexOf(product))
         const productName=document.createElement('a');
         productName.innerText=product.name;
-        productName.setAttribute('href','./productDetail.html')
+        productName.setAttribute('href','./productDetail.html?product='+arr.indexOf(product))
 
 
-        productInfoDiv.setAttribute('href','./productDetail.html')
+        //productInfoDiv.setAttribute('href','./productDetail.html')
         productInfoDiv.append(productPrice,productName);
 
         const productInfoFigure=document.createElement('figure');
@@ -134,42 +128,6 @@ function renderProducts(arr){
         cardContainer.appendChild(productCard);
 
         
-        //ESTA FUNCIÒN ES UN INTENTO DE VOLVER DINAMICOS LOS VALORES DEL ASIDE DESPLEGABLE DE LOS PRODUCT DETAILS NO PUDEkl
-        //Solo almacena los datos de la ultima
-        // productInfoDiv.addEventListener('click',function(){
-
-        //     productDetailContainer.removeChild(productDetailContainer.lastChild);
-
-        //     productDetailContainer.classList.add("inactive");
-        //     mobileMenu.classList.add("inactive");
-        //     cartMenu.classList.add("inactive");
-        //     userMenuDesktop.classList.add("inactive");
-        //     productDetailContainer.classList.remove("inactive");
-
-        //     console.log(productDescription);
-        //     //create and renderizing ProductInfoDetailAside
-        //     const productAsideInfo=document.createElement('div');
-        //     productAsideInfo.classList.add("product-info");
-        //     const productPriceAside = document.createElement("p");
-        //     productPriceAside.innerText ="$"+product.price;
-    
-        //     const productNameAside = document.createElement("p");
-        //     productNameAside.innerText =  product.name;
-    
-        //     const productDescriptionAside = document.createElement("p");
-        //     productDescriptionAside.innerText = product.description;
-
-        //     const buttonAsideProductDetail=document.createElement("button");
-        //     buttonAsideProductDetail.classList.add("primary-button");
-        //     buttonAsideProductDetail.classList.add("add-to-cart-button");
-            
-        //     buttonAsideProductDetail.innerText="Add to cart"
-
-
-        //     productAsideInfo.append(productPriceAside,productNameAside,productDescriptionAside,buttonAsideProductDetail);  
-            
-        //     productDetailContainer.appendChild(productAsideInfo);
-        // });
     }
 }
 

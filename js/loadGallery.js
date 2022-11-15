@@ -1,5 +1,28 @@
-console.log(THREE);
+//arr of products
+// const productList=[];
+// productList.push({
+//     id:0,
+//     name: 'Retro 1',
+//     price: '120',
+//     model: 'retro1',
+//     description: "Comfortable e-Bike with the power of a confident ride. Como lets you go with the flow by giving you a full-power, confidence-inspiring, utterly delightful experience on a bike that feels effortless to ride."
+// });
+// productList.push({
+//     id:1,
+//     name: 'Nike Up Tempo',
+//     price: '220',
+//     model: 'nikeUptempo',
+//     description: "Samsung Galaxy Tab A7 Lite, the tablet that's made to be shared. With its compact 8.7 screen, Galaxy Tab A7 Lite is perfectly sized for entertainment on the go. Its sturdy metal frame is built to be brought along from the living room to your beach vacation, or wherever you want to take it. Galaxy Tab A7 Lite also simplifies entertainment needs for everyone under your roof, with a powerful processor and plenty of storage."
+// });
+// productList.push({
+//     id:2,
+//     name: 'Vans Classic',
+//     price: '520',
+//     model: 'vans_obj',
+//     description: "View your favorite content at four times the resolution of 1080p with the Samsung TU7000 65 Class HDR 4K UHD Smart LED TV."
+// });
 
+//var init to start scen
 var scene0=null,scene1=null,scene2=null, camera=null, renderer0=null,renderer1=null,renderer2=null, controls0=null,controls1=null,controls2=null, pointLight=null,pointLight2=null;
 
 var shoes=[];
@@ -11,14 +34,14 @@ function start(){
 
 
 }
-// function onWindowResize(){
+function onWindowResize(){
 
-//     camera.aspect = window.innerWidth / window.innerHeight;
-//     camera.updateProjectionMatrix();
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
 
-//     renderer.setSize( window.innerWidth, window.innerHeight );
+    renderer.setSize( window.innerWidth, window.innerHeight, false);
 
-// }
+}
 
 function initScene(){
     // scene, camera, render
@@ -43,13 +66,12 @@ function initScene(){
     addBasicsInit(scene1);
     addBasicsInit(scene2);
 
-    //window.addEventListener( 'resize', onWindowResize, false );
+    window.addEventListener( 'resize', onWindowResize, false );
     
-    loadModel_objAndMtl("./src/models/obj/shoes/cerdito/","cerdito",true,scene0);
-    loadModel_objAndMtl("./src/models/obj/shoes/cerdito/","cerdito",true,scene1);
-    loadModel_objAndMtl("./src/models/obj/shoes/cerdito/","cerdito",true,scene2);
+    loadModel_objAndMtl("./src/models/obj/shoes/"+productList[0].model+"/",productList[0].model,true,scene0);
+    loadModel_objAndMtl("./src/models/obj/shoes/"+productList[1].model+"/",productList[1].model,true,scene1);
+    loadModel_objAndMtl("./src/models/obj/shoes/"+productList[2].model+"/",productList[2].model,true,scene2);
     
-    console.log("hey bitch")
 }
 
 function loadModel_objAndMtl(PathGeneralFolder, pahtFile, show,scene) {
@@ -68,28 +90,14 @@ function loadModel_objAndMtl(PathGeneralFolder, pahtFile, show,scene) {
             objLoader2.load(pahtFile+".obj", function (object) {
                 //
                 object.position.set(0,0,0);
-                //object.scale.set(0.2,0.2,0.2);
+                object.scale.set(0.2,0.2,0.2);
                 //
 
-                if (pahtFile == "Luigi"){
-                    object.scale.set(0.01,0.01,0.01);
 
-                }
-                if (pahtFile == "mario"){
-                    object.scale.set(0.2,0.2,0.2);
-                    
-                    
-
-                }
-                if (pahtFile == "Robot"){
-                    object.scale.set(1.5,1.5,1.5);
-                    
-
-                }
-                modPlayer = object;
                 
                 scene.add(object);
                 shoes.push(object);
+                console.log(shoes);
                 
             });
         });
@@ -113,12 +121,17 @@ function addBasicsInit(scene){
     
     // scene.add(gridHelper);
 
-    const light = new THREE.AmbientLight( 0x404040, 3 ); // soft white light
+    const light = new THREE.AmbientLight( 0xFCFFF0, 100 ); // soft white light
     scene.add( light );
 
-    pointLight = new THREE.PointLight( 0xedbe24, 3, 100 ); 
-    pointLight.position.set( 0, 5, 0 );
+    pointLight = new THREE.PointLight( 0xFCFFF0, 100, 0 ); 
+    pointLight.position.set( 5, 5, 0);
     scene.add( pointLight );
+
+
+    pointLight2 = new THREE.PointLight( 0xFCFFF0, 100, 0 ); 
+    pointLight2.position.set( -5, 5, 0 );
+    scene.add( pointLight2 );
 
 
     controls0= new THREE.OrbitControls( camera, renderer0.domElement );
