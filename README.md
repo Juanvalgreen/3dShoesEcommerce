@@ -2,7 +2,7 @@
 # Demo
 Go to the [Demo][df1]
 
-#About the project
+# About the project
 FootShop is a marketplace where Buyers and Sellers
 can make anonymous offers on a wide variety of
 streetwear, electronics and collectibles.
