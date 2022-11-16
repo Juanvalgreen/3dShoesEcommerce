@@ -3,8 +3,7 @@
 Go to the [Demo][df1]
 
 # About the project
-FootShop is a marketplace where Buyers and Sellers
-can make anonymous offers on a wide variety of
+FootShop is a marketplace where Buyers can make anonymous offers on a wide variety of
 streetwear, electronics and collectibles.
 
 🧑‍🎓 This is a small project ith the intention of practicing the basic concepts of web development. Developed with THREE.js to load models.
