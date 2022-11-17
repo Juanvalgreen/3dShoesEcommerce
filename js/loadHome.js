@@ -68,57 +68,6 @@ function initScene(){
     scene.add( pointLight );
 
 
-
-
-    // //to load island
-    // var generalPathI="../src/models/obj/isla/";
-    // var fileObjI="island v.2.obj";
-    // var fileMtlI="island v.2.mtl";
-
-
-    // //load scenery
-    
-    // var mtlLoader = new THREE.MTLLoader();
-    // mtlLoader.setTexturePath(generalPathI);
-    // mtlLoader.setPath(generalPathI);
-    // mtlLoader.load(fileMtlI, function(materials) {
-    //     materials.preload();
-        
-    //     var objLoader = new THREE.OBJLoader();
-    //     objLoader.setMaterials(materials);
-    //     objLoader.setPath(generalPathI);
-    //     objLoader.load(fileObjI,function(object){
-    //         object.position.set(-5,-2,5);
-    //         object.scale.set(1,1,1)
-    //         scene.add(object);
-    //         model=object;
-    //     }); 
-    // });
-
-    // to load Cerdito
-    //var generalPathC="../src/models/obj/cerdito/";
-    //var fileObjC="personaje.vox.obj";
-    //var fileMtlC="personaje.vox.mtl";
-
-    // to load character and mtl of OBJ fiile extension
-    
-    
-    // var mtlLoader = new THREE.MTLLoader();
-    // mtlLoader.setTexturePath(generalPathC);
-    // mtlLoader.setPath(generalPathC);
-    // mtlLoader.load(fileMtlC, function(materials) {
-    //     materials.preload();
-        
-    //     var objLoader = new THREE.OBJLoader();
-    //     objLoader.setMaterials(materials);
-    //     objLoader.setPath(generalPathC);
-    //     objLoader.load(fileObjC,function(object){
-    //         object.position.set(-2.5,1.9,3);
-    //         object.scale.set(0.2,0.2,0.2)
-    //         scene.add(object);
-    //     }); 
-    // });
-
     loadModel_objAndMtl("./src/models/obj/shoes/retro1/","retro1",true);
 }
 
@@ -141,21 +90,7 @@ function loadModel_objAndMtl(PathGeneralFolder, pahtFile, show) {
                 object.scale.set(0.2,0.2,0.2);
                 //
 
-                if (pahtFile == "Luigi"){
-                    object.scale.set(0.01,0.01,0.01);
-
-                }
-                if (pahtFile == "Mario"){
-                    object.scale.set(0.01,0.01,0.01);
-                    
-
-                }
-                if (pahtFile == "Robot"){
-                    object.scale.set(1,1,1);
-                    
-
-                }
-                modPlayer = object; //
+                model = object; //
                 scene.add(object);
             });
         });
@@ -182,8 +117,12 @@ function animate(){
     //controls.update();
     renderer.render(scene,camera);
        
-    modPlayer.rotation.x += ( mouseX - modPlayer.rotation.x ) * .03;
-    modPlayer.rotation.y += ( - mouseY -modPlayer.rotation.y ) * .03;
-
+    model.rotation.x += ( mouseX - model.rotation.x ) * .03;
+    model.rotation.y += ( -mouseY - model.rotation.y ) * .03;
+    
+    console.log(mouseX+"maousey");
+    console.log(mouseY+"maousey");
+    console.log(model.rotation.x );
+    console.log(model.rotation.y);
     camera.lookAt( scene.position );
 }
