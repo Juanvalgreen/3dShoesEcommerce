@@ -60,11 +60,11 @@ function initScene(){
     window.addEventListener( 'resize', onWindowResize, false );
 
     //ligths
-    const light = new THREE.AmbientLight( 0x404040, 30); // soft white light
+    const light = new THREE.AmbientLight( 0xffffff, 30); // soft white light
     scene.add( light );
 
-    pointLight = new THREE.PointLight( 0xedbe24, 5, 100 ); 
-    pointLight.position.set( 0, 5, 0 );
+    pointLight = new THREE.PointLight( 0xffffff, 5, 100 ); 
+    pointLight.position.set( 0, 6, 0 );
     scene.add( pointLight );
 
 
@@ -112,16 +112,17 @@ function onDocumentMouseMove( event ) {
 function animate(){
     requestAnimationFrame( animate );
 
-
+    //model.rotation.y += 0.01;
+    
+    //controls.update();
     renderer.render(scene,camera);
        
     model.rotation.x += ( mouseX - model.rotation.x ) * .03;
     model.rotation.y += ( -mouseY - model.rotation.y ) * .03;
     
-    // console.log(mouseX+"maousey");
-    // console.log(mouseY+"maousey");
-    // console.log(model.rotation.x );
-    // console.log(model.rotation.y);
+    console.log(mouseX+"maousey");
+    console.log(mouseY+"maousey");
+    console.log(model.rotation.x );
+    console.log(model.rotation.y);
     camera.lookAt( scene.position );
 }
-
